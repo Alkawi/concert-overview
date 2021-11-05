@@ -1,9 +1,6 @@
-.Band {
-  color: #000;
-  background: linear-gradient(180deg, #ffbb3b, #ffa90a);
-  font-size: 0.8em;
-  padding: 0.8em 2em;
-  border: none;
-  border-radius: 0.4em;
-  text-transform: uppercase;
+.band {
+  background-color: var(--c-dark-2);
+  color: var(--c-light);
+  padding: 20px;
+  border-radius: 6px;
 }

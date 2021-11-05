@@ -1,9 +1,16 @@
 .button {
-  color: #000;
-  background: linear-gradient(180deg, #ffbb3b, #ffa90a);
-  font-size: 0.8em;
-  padding: 0.8em 2em;
-  border: none;
-  border-radius: 0.4em;
+  color: var(--c-dark-2);
+  background-color: var(--c-primary);
+  border-radius: 999px;
   text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  transition: 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--c-secondary);
 }
