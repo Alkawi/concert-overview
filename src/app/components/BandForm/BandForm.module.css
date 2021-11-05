@@ -1,0 +1,64 @@
+.bandFormContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bandForm {
+  background-color: var(--c-dark-2);
+  width: 100%;
+  max-width: 500px;
+  padding: 50px;
+  border-radius: 5px;
+  display: grid;
+}
+
+.bandForm__input {
+  margin-bottom: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--c-light);
+  border-bottom: 3px solid var(--c-dark);
+  padding: 8px 0;
+  width: 100%;
+}
+
+.bandForm__input:focus {
+  outline: none;
+  border-bottom: 3px solid var(--c-light);
+}
+
+.bandForm__label {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.bandForm__escape {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: var(--c-light);
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  z-index: 101;
+  transition: 0.2s ease;
+}
+
+.bandForm__escape:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
