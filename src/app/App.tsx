@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './App.module.css';
+import Band from './components/Band/Band';
 
 function App(): JSX.Element {
   const [bandList, setBandList] = useState([
@@ -12,9 +13,9 @@ function App(): JSX.Element {
 
   return (
     <div>
-      {bandList.map((band) => (
-        <div>{JSON.stringify(band)}</div>
-      ))}
+      {bandList.map((band) => {
+        return <Band key={band.name} payload={band} />;
+      })}
     </div>
   );
 }
