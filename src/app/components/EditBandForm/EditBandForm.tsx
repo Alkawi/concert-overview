@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { setEnvironmentData } from 'worker_threads';
 import Button from '../Button/Button';
 import styles from './EditBandForm.module.css';
 
