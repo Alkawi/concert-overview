@@ -5,10 +5,11 @@ import classes from './Button.module.css';
 type ButtonProps = {
   children: ReactNode;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 };
-function Button({ children, onClick }: ButtonProps): JSX.Element {
+function Button({ children, onClick, type }: ButtonProps): JSX.Element {
   return (
-    <button onClick={onClick} className={classes.button}>
+    <button onClick={onClick} className={classes.button} type={type}>
       {children}
     </button>
   );

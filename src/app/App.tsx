@@ -1,8 +1,8 @@
-import { addListener } from 'process';
 import React, { useState } from 'react';
 import styles from './App.module.css';
 import Band from './components/Band/Band';
 import BandForm from './components/BandForm/BandForm';
+import EditBandForm from './components/EditBandForm/EditBandForm';
 import Nav from './components/Nav/Nav';
 
 type terminObj = {
@@ -65,8 +65,9 @@ const BANDLIST = [
 ];
 
 function App(): JSX.Element {
-  const [showForm, setShowForm] = useState(false);
+  const [view, setView] = useState('idle');
   const [bandList, setBandList] = useState(BANDLIST);
+  const [editId, setEditId] = useState(0);
 
   function handleBandSubmit(band: bandObj) {
     if (!band.name || !band.genre) {
@@ -80,21 +81,54 @@ function App(): JSX.Element {
     }
 
     setBandList((prev) => [...prev, band]);
-    setShowForm(false);
+    setView('idle');
+  }
+
+  function handleEdit(idx: number) {
+    setEditId(idx);
+    setView('editBand');
+  }
+  function handleBandUpdate(band: bandObj) {
+    setBandList((prev) => {
+      prev[editId] = band;
+      return prev;
+    });
+    setView('idle');
+  }
+
+  function handleBandDelete(idx: number) {
+    const newBandlist = bandList.filter((_, bandIdx) => bandIdx !== idx);
+    setBandList(newBandlist);
+    setView('idle');
   }
 
   return (
     <div className={styles.appContainer}>
-      {showForm && (
+      {view === 'addBand' && (
         <BandForm
-          onEscape={() => setShowForm(false)}
+          onEscape={() => setView('idle')}
           onSubmit={(band: bandObj) => handleBandSubmit(band)}
         />
       )}
-      <Nav onAddBand={() => setShowForm(true)} />
+      {view === 'editBand' && (
+        <EditBandForm
+          band={bandList[editId]}
+          onEscape={() => setView('idle')}
+          onSubmit={(band: bandObj) => handleBandUpdate(band)}
+          onDelete={() => handleBandDelete(editId)}
+        />
+      )}
+
+      <Nav onAddBand={() => setView('addBand')} />
       <div className={styles.bandContainer}>
-        {bandList.map((band) => {
-          return <Band key={band.name} payload={band} />;
+        {bandList.map((band, idx) => {
+          return (
+            <Band
+              key={band.name}
+              payload={band}
+              onEdit={() => handleEdit(idx)}
+            />
+          );
         })}
       </div>
     </div>
