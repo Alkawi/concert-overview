@@ -126,10 +126,16 @@ function EditBandForm({
             </Button>
           </div>
         ))}
-        <Button type="button" onClick={onDelete}>
-          delete Band
-        </Button>
-        <Button>Edit Band</Button>
+        <div className={styles.EditBandForm__buttonContainer}>
+          <button
+            className={styles.EditBandForm__delete}
+            type="button"
+            onClick={onDelete}
+          >
+            delete
+          </button>
+          <button className={styles.EditBandForm__save}>save</button>
+        </div>
       </form>
     </div>
   );
