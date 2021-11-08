@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button/Button';
 import Termin from '../Termin/Termin';
 import styles from './Band.module.css';
 
@@ -11,9 +12,10 @@ type BandObj = {
 type BandProps = {
   payload: BandObj;
   onEdit: () => void;
+  onAddTermin: () => void;
 };
 
-function Band({ payload, onEdit }: BandProps): JSX.Element {
+function Band({ payload, onEdit, onAddTermin }: BandProps): JSX.Element {
   const { name, genre, termine } = payload;
   return (
     <div className={styles.band}>
@@ -28,6 +30,7 @@ function Band({ payload, onEdit }: BandProps): JSX.Element {
           <Termin payload={termin} />
         ))}
       </ul>
+      <Button onClick={onAddTermin}>add gig</Button>
       <button className={styles.band__editBtn} onClick={onEdit}>
         edit
       </button>

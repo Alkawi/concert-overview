@@ -4,6 +4,7 @@ import Band from './components/Band/Band';
 import BandForm from './components/BandForm/BandForm';
 import EditBandForm from './components/EditBandForm/EditBandForm';
 import Nav from './components/Nav/Nav';
+import TerminForm from './components/TerminForm/TerminForm';
 
 type terminObj = {
   date: string;
@@ -95,6 +96,19 @@ function App(): JSX.Element {
     setView('idle');
   }
 
+  function handleAddTermin(idx: number) {
+    setEditId(idx);
+    setView('addTermin');
+  }
+
+  function handleTerminSubmit(termin: terminObj) {
+    setBandList((prev) => {
+      prev[editId].termine = [...prev[editId].termine, termin];
+      return prev;
+    });
+    setView('idle');
+  }
+
   function handleBandDelete(idx: number) {
     const newBandlist = bandList.filter((_, bandIdx) => bandIdx !== idx);
     setBandList(newBandlist);
@@ -107,6 +121,12 @@ function App(): JSX.Element {
         <BandForm
           onEscape={() => setView('idle')}
           onSubmit={(band: bandObj) => handleBandSubmit(band)}
+        />
+      )}
+      {view === 'addTermin' && (
+        <TerminForm
+          onEscape={() => setView('idle')}
+          onSubmit={(termin: terminObj) => handleTerminSubmit(termin)}
         />
       )}
       {view === 'editBand' && (
@@ -126,6 +146,7 @@ function App(): JSX.Element {
               key={band.name}
               payload={band}
               onEdit={() => handleEdit(idx)}
+              onAddTermin={() => handleAddTermin(idx)}
             />
           );
         })}
