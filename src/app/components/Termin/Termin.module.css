@@ -1,9 +1,12 @@
-.Termin {
-  color: #000;
-  background: linear-gradient(180deg, #ffbb3b, #ffa90a);
-  font-size: 0.8em;
-  padding: 0.8em 2em;
-  border: none;
-  border-radius: 0.4em;
-  text-transform: uppercase;
+.termin {
+  background-color: var(--c-dark);
+  padding: 8px 14px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  font-size: 1.1rem;
+}
+
+.termin__date {
+  text-decoration: underline 3px var(--c-secondary);
+  margin-right: 15px;
 }
