@@ -4,9 +4,13 @@
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
   font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  align-items: center;
 }
 
 .termin__date {
-  text-decoration: underline 3px var(--c-secondary);
+  justify-self: start;
+  border-bottom: solid 3px var(--c-primary);
   margin-right: 15px;
 }
