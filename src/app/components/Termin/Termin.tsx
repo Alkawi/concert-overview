@@ -13,9 +13,9 @@ type TerminProps = {
 function Termin({ payload }: TerminProps): JSX.Element {
   const { date, location } = payload;
   return (
-    <li>
-      <span>{date}</span>
-      <span>{location}</span>
+    <li className={styles.termin}>
+      <span className={styles.termin__date}>{date}</span>
+      <span className={styles.termin__location}>{location}</span>
     </li>
   );
 }

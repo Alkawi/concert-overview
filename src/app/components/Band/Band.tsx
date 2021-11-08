@@ -10,19 +10,27 @@ type BandObj = {
 
 type BandProps = {
   payload: BandObj;
+  onEdit: () => void;
 };
 
-function Band({ payload }: BandProps): JSX.Element {
+function Band({ payload, onEdit }: BandProps): JSX.Element {
   const { name, genre, termine } = payload;
   return (
     <div className={styles.band}>
-      <h2>{name}</h2>
-      <span>{genre}</span>
-      <ul>
+      <h2 className={styles.band__title}>{name}</h2>
+      <ul className={styles.band__genreList}>
+        {genre.map((g) => (
+          <li className={styles.band__genre}>{g}</li>
+        ))}
+      </ul>
+      <ul className={styles.band__terminList}>
         {termine.map((termin) => (
           <Termin payload={termin} />
         ))}
       </ul>
+      <button className={styles.band__editBtn} onClick={onEdit}>
+        edit
+      </button>
     </div>
   );
 }

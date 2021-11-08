@@ -1,6 +1,49 @@
 .band {
+  position: relative;
   background-color: var(--c-dark-2);
   color: var(--c-light);
   padding: 20px;
   border-radius: 6px;
+  padding-bottom: 50px;
+}
+
+.band__title {
+  font-size: 1.8rem;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.band__genreList {
+  display: flex;
+  list-style: none;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.band__genre {
+  background-color: var(--c-secondary);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.band__terminList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.band__editBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: 3px solid var(--c-light);
+  color: var(--c-light);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 3px;
 }
